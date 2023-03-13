@@ -19,18 +19,18 @@ pipeline {
                 } 
             }
         }
-        // stage('deploy nginx') {
-        //     steps {
-        //         // 
-        //         script {
-        //             script {
-        //                 dir('kubernetes') {
-        //                     sh "aws eks update kubeconfig --name myapp-eks-cluster"
-        //                     sh "kubectl apply -f nginx-deployment.yaml"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('deploy nginx') {
+            steps {
+                // 
+                script {
+                    script {
+                        dir('kubernetes') {
+                            sh "aws eks update kubeconfig --name myapp-eks-cluster"
+                            sh "kubectl apply -f nginx-deployment.yaml"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
